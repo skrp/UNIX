@@ -3,7 +3,7 @@ use Digest::SHA ();
 ###########################
 # INSPEK - validate configs
 #  (@)=     ---skrp of MKRX
-my $true_path = {{@}};
+my ($true_path) = @ARGV;
 open(my $tfh, '<', $true_path) or die "cant open $true_path";
 my @unsplit_true = readline $tfh; chomp @unsplit_true;
 my %true;
