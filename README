@@ -1,0 +1,19 @@
+##############################
+# UNIX - verified system clone
+
+pf
+  interface
+
+portmaster
+
+usr & screen
+
+permissions
+  ftp 333
+  
+jails
+
+daemons
+
+nfs
+
