@@ -1,19 +1,29 @@
-##############################
-# UNIX - verified system clone
+########################
+# UNIX - MKRX buildworld
+KERN.CONF - amd64
 
-pf
-  interface
+pf.conf
 
-portmaster
+rc.conf
 
+jail.conf
+
+zfs.attr
+
+BIN
+
+groups
+
+ports
+
+VPS
+
+config sha verified
+
+MINION
+#########################
 usr & screen
-
 permissions
-  ftp 333
-  
-jails
-
-daemons
-
+ftp 333
 nfs
 
