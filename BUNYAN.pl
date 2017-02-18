@@ -1,6 +1,18 @@
 # log parser
-
-mkrx    # pool integrity
+oopen {
+  my ($log) = @_;
+  open(my $lfh, '<', $log);
+  my @data = readline $lfh; 
+  close $lfh; chomp @data;
+  return @data;
+}
+mkrx { # pool integrity
+  my $log = '/var/log/xferlog';
+  my @data = oopen($log);
+  foreach my $item (@data) {
+ #  
+  }
+}
 zpool   
 zmd
 pflog
@@ -10,4 +22,10 @@ cron
 dmesg
 mount.today
 security
-xferlog
+xferlog {
+  my $log = '/var/log/xferlog';
+  my @data = oopen($log);
+  foreach my $item (@data) {
+ # 
+  }
+}
