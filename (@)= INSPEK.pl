@@ -1,7 +1,7 @@
 use strict; use warnings;
 use Digest::SHA ();
-###########################
-# INSPEK - validate configs
+##############################
+# INSPEK - validate config sha
 #  (@)=     ---skrp of MKRX
 my ($true_path) = @ARGV;
 open(my $tfh, '<', $true_path) or die "cant open $true_path";
