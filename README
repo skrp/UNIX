@@ -10,6 +10,7 @@ nfs.attr
 # CONF #################
 pf.conf
 rc.conf
+rbash.conf
 jail.conf
 vsftpd.conf
 sshd.conf
