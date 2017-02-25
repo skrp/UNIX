@@ -1,7 +1,7 @@
 ########################
 # UNIX 
 # WORLD ################
-KERN.CONF - amd64
+KERNCONF (amd64)
 # PERM #################
 groups
 zfs.attr
