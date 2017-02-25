@@ -1,13 +1,63 @@
-# WHEEL ###################
-# one ring to rule them all
-# & in the darkness bind them
-lord
-# RIGHTS ##################
-restricted
-ping
-nfsr
-nfsrw 
-http
-ssh
-log
-ftp
+
+one ring to rule them all
+& in the darkness bind them
+
+#########################
+# group permissions rings
+hierarchal
+  .....  one
+  ....   sup
+  ...    app
+  ..     ver
+  .      all
+
+%%%%%%%
+% OWNER
+%%%%%%%
+
+# ROOT #################
+/root  {0700}
+/log  {0700}
+/     {0755}
+/usb/mnt_usb  {0750}
+# SUP ##################
+/dev    {0770}
+/etc    {0770}
+/var    {0770}
+/trove  {0770}
+/bin   {0770}
+/config  {0770}
+/nfs   {0770}
+# APP #################
+/usb/data   {0770} 
+/tmp  {0770}
+/lib  {0770}
+/minecraft  {0770}
+/pub  {0775}
+# VER #################
+/nfs/personal {0700}
+/nfs/personal/latest {0700} (bkup image restore)
+/nfs/pub    {0750}
+/nfs/pub/latest {0750}
+# ALL #################
+/home/beemo {0700}
+/pub/beemo  {0755}
+
+%%%%%%
+% PERM
+%%%%%%
+
+# APP #################
+/usb/mnt_usb {0550}
+/log  {0550}
+/config {0550}
+# VER #################
+/nfs  {0550}
+/usb  {0550}
+/g    {0550}
+# ALL #################
+/home  {0555}
+/pub   {0555}
+/trove {0555}
+/bin   {0555}
+/dump  {0333}
