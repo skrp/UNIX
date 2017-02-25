@@ -5,6 +5,8 @@ KERNCONF (amd64)
 syscall.h
 # PERM #################
 groups
+EACH.pl (adds user to group at host node)
+CUSTOMS.pl (creates user in ALL on 'ALL' network nodes; adds user to 'VER' on 'VER' network nodes;)
 zfs.attr
 nfs.attr
 # CONF #################
