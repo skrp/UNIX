@@ -2,6 +2,7 @@
 # UNIX 
 # WORLD ################
 KERNCONF (amd64)
+syscall.h
 # PERM #################
 groups
 zfs.attr
