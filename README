@@ -3,6 +3,7 @@
 # WORLD ################
 KERNCONF (amd64)
 syscall.h
+dtrash
 # PERM #################
 groups
 EACH.pl (adds user to group at host node)
