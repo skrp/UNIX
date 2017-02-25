@@ -1,29 +1,29 @@
 ########################
-# UNIX - MKRX buildworld
+# UNIX 
+# WORLD ################
 KERN.CONF - amd64
-
-pf.conf
-
-rc.conf
-
-jail.conf
-
-zfs.attr
-
-BIN
-
+# PERM #################
 groups
-
-ports
-
-VPS
-
-config sha verified
-
-MINION
-#########################
-usr & screen
-permissions
-ftp 333
-nfs
-
+zfs.attr
+nfs.attr
+# CONF #################
+pf.conf
+rc.conf
+jail.conf
+vsftpd.conf
+sshd.conf
+squid.conf
+openvpn.conf
+maild.conf
+httpd.conf
+minecraft.conf
+# PORTS ################
+ports (nonpkg)
+vps (tunnelrdy)
+perl
+c
+# LOGS #################
+NEWS.pm
+INSPEK.pl
+# KRIP #################
+krip
