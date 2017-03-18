@@ -1,0 +1,10 @@
+# RC.CONF ##############
+wlans_{{@}}=”wlan″
+ifconfig_wlan=”WPA DHCP”
+
+# WPA_SUPPLICANT.CONF #
+network={
+  priority=1
+  ssid=”{{@}}″
+  psk=”{{@}}”
+}
