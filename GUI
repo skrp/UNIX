@@ -3,3 +3,7 @@ portsnap extract
 portsnap update
 
 cd /usr/ports/ports-mgmt/portmaster/ && make install clean
+
+cp mkrx/portmaster.rc /usr/local/etc/portmaster.rc
+
+portmaster x11/xorg-minimal
