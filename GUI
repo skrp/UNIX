@@ -1,0 +1,5 @@
+portsnap fetch
+portsnap extract
+portsnap update
+
+cd /usr/ports/ports-mgmt/portmaster/ && make install clean
