@@ -1,4 +1,5 @@
 #!/usr/local/bin/bash
+# FreeBSD 
 #####################################################
 # archive.org total scraper using cursor API stepping
 
