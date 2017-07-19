@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
-# FreeBSD 
+# FreeBSD Locals Only
 #####################################################
-# archive.org total scraper using cursor API stepping
+# archive.org complete identifier scraper using cursor API stepping
 
 # cursor api allows stepped requests from the server to 
 # get around only serving 10k identifier requests at a time
@@ -14,9 +14,10 @@ count=0
 # INITIATE #########################################
 # necessary to get first cursor
 fetch -o $count https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A($collection)%20AND%20mediatype%3A(texts);
-total=$( sed 's/.*","total"://' 0 | sed 's/}//' )
 cursor=$( sed 's/.*"cursor":"//' 0 | sed 's/".*//' )
 ((count++))
+
+total=$( sed 's/.*","total"://' 0 | sed 's/}//' )
 
 # WORK #############################################
 while [ $count -lt 270 ]
