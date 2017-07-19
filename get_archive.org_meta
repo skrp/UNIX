@@ -8,12 +8,13 @@
 # each raw dump named after count
 
 # collection example: americana
-collection=$1
+collection=$1 # refer to archive.org
 count=0
+type='texts' # refer to archive.org
 
 # INITIATE #########################################
 # necessary to get first cursor
-fetch -o $count https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A($collection)%20AND%20mediatype%3A(texts);
+fetch -o $count https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A($collection)%20AND%20mediatype%3A($type\);
 cursor=$( sed 's/.*"cursor":"//' 0 | sed 's/".*//' )
 ((count++))
 
@@ -26,6 +27,6 @@ while [ $count -lt $reps ]
 do
 	((count++));
 	printf "$count $cursor\n";
-	fetch -o $count https://archive.org/services/search/v1/scrape\?count\=10000\&fields\=identifier\&q\=collection\%3A\($collection\)\%20AND\%20mediatype\%3A\(texts\)\&cursor\=$cursor;
+	fetch -o $count https://archive.org/services/search/v1/scrape\?count\=10000\&fields\=identifier\&q\=collection\%3A\($collection\)\%20AND\%20mediatype\%3A\($type\)\&cursor\=$cursor;
 	cursor=$( sed 's/.*"cursor":"//' $count | sed 's/","previous.*//') 
 done
