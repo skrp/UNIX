@@ -1,6 +1,21 @@
 #!/usr/local/bin/bash
-que='' # que dump path
+# FreeBSD Locals Only
+
+# ARGV1 - working dir of https://raw.githubusercontent.com/skrp/UNIX/master/get_archive.org_meta
+if (( $# != 1 ))
+then
+	printf"\nUsage: \n";
+	printf "ARG1 - Dir to Split\n";
+	exit 1;
+fi
+
+que='que' # total que dump path
+
+# WORK #################################
 for file in $1/*
 do
 	sed 's/.*\[//' $file | sed 's/\].*//' | sed 's/"identifier"//g' | sed 's/[{}":]//g' | tr , '\n' >> $que;
 done
+
+# Managable que files ##################
+# split -a 6 -dl 1000 $que
