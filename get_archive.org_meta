@@ -1,5 +1,6 @@
 #!/usr/local/bin/bash
-
+#####################################################
+# archive.org total scraper using cursor API stepping
 count=1
 cursor='W3siaWRlbnRpZmllciI6IjEwMTUwOTYyMS5ubG0ubmloLmdvdiJ9XQ='
 while [ $count -lt 270 ]
