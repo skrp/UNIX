@@ -1,0 +1,5 @@
+#!/usr/local/bin/bash
+for file in $1/*
+do
+	sed 's/.*\[//' $file | sed 's/\].*//' | sed 's/"identifier"//g' | sed 's/[{}":]//g' | tr , '\n' >> ~/total;
+done
