@@ -1,5 +1,9 @@
 #!/usr/local/bin/bash
+###########################
+# scrape html & rebuild url
+
 dir=$1
+
 for i in $dir/*
 do
     grep "Download PDF" $i | sed 's?.*="/pdf/?https://arxiv.org/pdf/?' | sed 's/".*/.pdf/' >> ~/pdf
