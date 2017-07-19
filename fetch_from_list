@@ -1,4 +1,8 @@
 #!/usr/local/bin/bash
+######################
+# sanitize & grab files
+# FreeBSD Locals Only
+
 while read -r line
 do
     file=$( echo $line | sed 's/https:\/\///' | sed 's/\//_/g' )
