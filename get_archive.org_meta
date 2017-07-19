@@ -1,11 +1,17 @@
 #!/usr/local/bin/bash
 #####################################################
 # archive.org total scraper using cursor API stepping
+
 # cursor api allows stepped requests from the server to 
 # get around only serving 10k identifier requests at a time
 # download one, then add its cursor below to initiate
+
 # collection example: americana
 collection=$1
+count=0
+
+cursor='' # FIND cursor VALUE AT END OF FIRST QUERY
+cursor = fetch -o $count https://archive.org/services/search/v1/scrape\?count\=10000\&fields\=identifier\&q\=collection\%3A\($collection\)\%20AND\%20mediatype\%3A\(texts\);
 count=1
 cursor='' # FIND cursor VALUE AT END OF FIRST QUERY
 while [ $count -lt 270 ]
