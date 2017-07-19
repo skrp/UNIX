@@ -10,10 +10,11 @@
 collection=$1
 count=0
 
-cursor='' # FIND cursor VALUE AT END OF FIRST QUERY
-cursor = fetch -o $count https://archive.org/services/search/v1/scrape\?count\=10000\&fields\=identifier\&q\=collection\%3A\($collection\)\%20AND\%20mediatype\%3A\(texts\);
-count=1
-cursor='' # FIND cursor VALUE AT END OF FIRST QUERY
+# INITIATE #########################################
+cursor = fetch -o $count https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A($collection)%20AND%20mediatype%3A(texts);
+((count++));
+
+# WORK #############################################
 while [ $count -lt 270 ]
 do
 	((count++));
