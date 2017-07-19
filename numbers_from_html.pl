@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #####################
-
+# xin prep
 my @files = <good/*>;
 foreach my $f (@files)
 {
