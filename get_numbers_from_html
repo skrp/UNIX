@@ -1,4 +1,6 @@
 #!/usr/local/bin/bash
+#########################
+# use with prep_xin.pl
 
 dir=$1
 
