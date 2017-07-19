@@ -1,5 +1,8 @@
 #!/usr/local/bin/bash
-for i in good/*
+
+dir=$1
+
+for i in $dir/*
 do
     while read -r line
     do
