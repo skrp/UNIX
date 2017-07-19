@@ -1,5 +1,6 @@
 #!/usr/local/bin/bash
+que='' # que dump path
 for file in $1/*
 do
-	sed 's/.*\[//' $file | sed 's/\].*//' | sed 's/"identifier"//g' | sed 's/[{}":]//g' | tr , '\n' >> ~/total;
+	sed 's/.*\[//' $file | sed 's/\].*//' | sed 's/"identifier"//g' | sed 's/[{}":]//g' | tr , '\n' >> $que;
 done
