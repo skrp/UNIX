@@ -4,7 +4,8 @@
 # cursor api allows stepped requests from the server to 
 # get around only serving 10k identifier requests at a time
 # download one, then add its cursor below to initiate
-collection='americana'
+# collection example: americana
+collection=$1
 count=1
 cursor='' # FIND cursor VALUE AT END OF FIRST QUERY
 while [ $count -lt 270 ]
