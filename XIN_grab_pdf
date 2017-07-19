@@ -4,17 +4,22 @@
 
 while read -r line
 count=0
+bad=0
 do
+    if [ $bad -gt 1000 ]; then
+        exit;
+    fi
     name=$( echo $line | sed 's?https://??' | sed 's?/?_?g' )
-    sleep 1;
+    sleep 5;
     fetch -o ~/dump/$name $line;
     if [ -e ~/dump/$name ]; then
         printf "$line\n" >> ~/GOTEM
     else
         printf "$line\n" >> ~/FAIL
+        ((bad++))
     fi
-    printf "$count\n";
-    ((count++));
+    printf "%s\n" "$count";
+    ((count++))
 done
 
 
