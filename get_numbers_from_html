@@ -1,0 +1,11 @@
+#!/usr/local/bin/bash
+for i in good/*
+do
+    while read -r line
+    do
+        v=$( grep ' total of ' )
+        printf "$v\n";
+        b=$( sed 's/.* total of //' $v )
+        printf "$b\n";
+    done < $i
+done
