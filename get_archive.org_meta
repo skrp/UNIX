@@ -3,7 +3,7 @@
 # archive.org total scraper using cursor API stepping
 # download one, then add its cursor below to initiate
 count=1
-cursor='W3siaWRlbnRpZmllciI6IjEwMTUwOTYyMS5ubG0ubmloLmdvdiJ9XQ='
+cursor='' #look in the file
 while [ $count -lt 270 ]
 do
 	((count++));
