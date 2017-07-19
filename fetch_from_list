@@ -1,0 +1,9 @@
+#!/usr/local/bin/bash
+while read -r line
+do
+    file=$( echo $line | sed 's/https:\/\///' | sed 's/\//_/g' )
+    echo $file;
+    fetch -o dump/$file https://$line || printf "$line\n" >> redo;
+    sleep 1;
+done
+
