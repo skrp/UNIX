@@ -1,0 +1,18 @@
+#!/usr/local/bin/bash
+
+while read -r line
+count=0
+do
+    name=$( echo $line | sed 's?https://??' | sed 's?/?_?g' )
+    sleep 1;
+    fetch -o ~/dump/$name $line;
+    if [ -e ~/dump/$name ]; then
+        printf "$line\n" >> ~/GOTEM
+    else
+        printf "$line\n" >> ~/FAIL
+    fi
+    printf "$count\n";
+    ((count++));
+done
+
+
