@@ -12,10 +12,11 @@ collection=$1
 count=0
 
 # INITIATE #########################################
+# necessary to get first cursor
 fetch -o $count https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A($collection)%20AND%20mediatype%3A(texts);
-cursor=$( sed 's/.*"cursor":"//' 0 | sed 's/".*//' );
-((count++));
-
+total=$( sed 's/.*","total"://' 0 | sed 's/}//' )
+cursor=$( sed 's/.*"cursor":"//' 0 | sed 's/".*//' )
+((count++))
 
 # WORK #############################################
 while [ $count -lt 270 ]
@@ -23,5 +24,5 @@ do
 	((count++));
 	printf "$count $cursor\n";
 	fetch -o $count https://archive.org/services/search/v1/scrape\?count\=10000\&fields\=identifier\&q\=collection\%3A\($collection\)\%20AND\%20mediatype\%3A\(texts\)\&cursor\=$cursor;
-	cursor=$( sed 's/.*"cursor":"//' $count | sed 's/","previous.*//') # REPLACE WITH NEW CURSOR
+	cursor=$( sed 's/.*"cursor":"//' $count | sed 's/","previous.*//') 
 done
