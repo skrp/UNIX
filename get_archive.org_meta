@@ -1,0 +1,11 @@
+#!/usr/local/bin/bash
+
+count=1
+cursor='W3siaWRlbnRpZmllciI6IjEwMTUwOTYyMS5ubG0ubmloLmdvdiJ9XQ='
+while [ $count -lt 270 ]
+do
+	((count++));
+	printf "$count $cursor\n";
+	fetch -o $count https://archive.org/services/search/v1/scrape\?count\=10000\&fields\=identifier\&q\=collection\%3A\(americana\)\%20AND\%20mediatype\%3A\(texts\)\&cursor\=$cursor;
+	cursor=$( sed 's/.*"cursor":"//' $count | sed 's/","previous.*//')
+done
