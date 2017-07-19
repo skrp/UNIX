@@ -18,9 +18,11 @@ cursor=$( sed 's/.*"cursor":"//' 0 | sed 's/".*//' )
 ((count++))
 
 total=$( sed 's/.*","total"://' 0 | sed 's/}//' )
+reps=$((total / 10000))
+((reps++))
 
 # WORK #############################################
-while [ $count -lt 270 ]
+while [ $count -lt $reps ]
 do
 	((count++));
 	printf "$count $cursor\n";
