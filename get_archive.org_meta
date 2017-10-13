@@ -11,11 +11,15 @@
 printf "USAGE: ARG1 collection ARG2 type\n";
 collection=$1 # refer to archive.org
 count=0
-type=$1 # refer to archive.org
+#type=$2 # refer to archive.org
 
 # INITIATE #########################################
 # necessary to get first cursor
-url='https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A('$collection')%20AND%20mediatype%3A('$type')'
+url='https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A('$collection')%20'
+
+# type specified
+# url='https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A('$collection')%20AND%20mediatype%3A('$type')'
+
 fetch -o $count $url;
 cursor=$( sed 's/.*"cursor":"//' 0 | sed 's/".*//' )
 ((count++))
@@ -29,7 +33,10 @@ while [ $count -lt $reps ]
 do
 	((count++));
 	printf "$count $cursor\n";
-	iurl='https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A('$collection')%20AND%20mediatype%3A('$type')&cursor='$cursor;
+	iurl='https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A('$collection')%20'&cursor='$cursor;
+	# type specified
+	#iurl='https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A('$collection')%20AND%20mediatype%3A('$type')&cursor='$cursor;
+
 	fetch -o $count $iurl;
 	cursor=$( sed 's/.*"cursor":"//' $count | sed 's/","previous.*//') 
 done
