@@ -45,4 +45,5 @@ done
 for file in {0 .. $count}
 do
 	sed 's/.*\[//' $file | sed 's/\].*//' | sed 's/"identifier"//g' | sed 's/[{}":]//g' | tr , '\n' >> QUE;
+	printf "$file sanitized\n"; 
 done
