@@ -43,12 +43,9 @@ do
 done
 # CREATE QUE 
 ((count--)); # remove trailing ++
-#for file in {0..$count}
 for ((file=0; file<=$count; file++))
 do
-	sed 's/.*\[//' $file | sed 's/\].*//' | sed 's/"identifier"//g' | sed 's/[{}":]//g' | tr , '\n' >> QUE;
+	id=$(sed 's/.*\[//' $file | sed 's/\].*//' | sed 's/"identifier"//g' | sed 's/[{}":]//g' | tr , '') 
+	printf "https://archive.org/download/$i>> QUE;
 	printf "$file sanitized\n"; 
 done
-
-#mp4 pdf txt _meta.xml mp3
-
