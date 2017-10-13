@@ -32,7 +32,7 @@ reps=$((total / 10000))
 while [ $count -lt $reps ]
 do
 	printf "$count $cursor\n";
-	iurl='https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A('$collection')%20'&cursor='$cursor;
+	iurl='https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A('$collection')%20&cursor='$cursor;
 	# type specified
 	#iurl='https://archive.org/services/search/v1/scrape?debug=false&total_only=false&count=10000&fields=identifier&q=collection%3A('$collection')%20AND%20mediatype%3A('$type')&cursor='$cursor;
 
