@@ -8,9 +8,10 @@
 # each raw dump named after count
 
 # collection example: americana
-printf "USAGE: ARG1 collection ARG2 type\n";
+printf "USAGE: ARG1 collection";
 collection=$1 # refer to archive.org
 count=0
+# TYPE SPECIFIED
 #type=$2 # refer to archive.org
 
 # INITIATE #########################################
