@@ -45,7 +45,7 @@ done
 ((count--)); # remove trailing ++
 for ((file=0; file<=$count; file++))
 do
-	id=$(sed 's/.*\[//' $file | sed 's/\].*//' | sed 's/"identifier"//g' | sed 's/[{}":]//g' | sed 's/\'/ /g') 
-	printf "https://archive.org/download/$i\n" >> QUE;
+	sed 's/.*\[//' $file | sed 's/\].*//' | sed 's/"identifier"//g' | sed 's/[{}":]//g' | tr , '\n' >> QUE;
+	sed 's|^|https://archive.org/download/|' QUE;
 	printf "$file sanitized\n"; 
 done
