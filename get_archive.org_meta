@@ -40,3 +40,9 @@ do
 	cursor=$( sed 's/.*"cursor":"//' $count | sed 's/","previous.*//')
 	((count++));
 done
+# CREATE QUE 
+((count--)); # remove trailing ++
+for file in {0 .. $count}
+do
+	sed 's/.*\[//' $file | sed 's/\].*//' | sed 's/"identifier"//g' | sed 's/[{}":]//g' | tr , '\n' >> QUE;
+done
