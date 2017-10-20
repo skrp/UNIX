@@ -1,6 +1,7 @@
 ########################################
 # PORTS
 vim
+perl5
 bash
 sudo
 vsftpd
